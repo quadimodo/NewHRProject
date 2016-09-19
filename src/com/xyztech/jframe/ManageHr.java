@@ -31,6 +31,7 @@ import com.xyztech.action.ActionPage;
 import com.xyztech.bean.Beans;
 import com.xyztech.bean.Chaxun;
 import com.xyztech.bean.Salarys;
+import com.xyztech.jframe.alert.XiuGai;
 import com.xyztech.service.Connections;
 import com.xyztech.service.CreateTable;
 import com.xyztech.util.Fenye;
@@ -179,6 +180,15 @@ public class ManageHr extends JFrame {
 		panel.add(button);
 		
 		JButton button_1 = new JButton("\u65B0\u589E");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				XiuGai xg=new XiuGai();
+				xg.btnNewButton.setVisible(false);
+				xg.button.setVisible(false);
+				xg.button_2.setVisible(true);
+				xg.setVisible(true);
+			}
+		});
 		button_1.setBounds(759, 32, 93, 23);
 		panel.add(button_1);
 		

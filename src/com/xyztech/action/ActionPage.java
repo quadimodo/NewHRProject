@@ -42,16 +42,16 @@ public class ActionPage {
 		xg.comboBox_1.setSelectedIndex(bean.getPerid()-1);
 		xg.setVisible(true);		
 	}
-	public void actionXiugai(){
-		beans.setUsername(xg.textField.getText());
-		beans.setPassword(xg.textField_1.getText());
-		beans.setTelphone(xg.textField_5.getText());
-		beans.setGender(xg.textField_6.getText());
-		beans.setRankid(xg.comboBox_2.getSelectedIndex()+1);
-		beans.setDepid(xg.comboBox.getSelectedIndex()+1);
-		beans.setPerid(xg.comboBox_1.getSelectedIndex()+1);
-		new TestLogin().updateUser(beans);
-	}
+//	public void actionXiugai(XiuGai xg){
+//		beans.setUsername(xg.textField.getText());
+//		beans.setPassword(xg.textField_1.getText());
+//		beans.setTelphone(xg.textField_5.getText());
+//		beans.setGender(xg.textField_6.getText());
+//		beans.setRankid(xg.comboBox_2.getSelectedIndex()+1);
+//		beans.setDepid(xg.comboBox.getSelectedIndex()+1);
+//		beans.setPerid(xg.comboBox_1.getSelectedIndex()+1);
+//		new TestLogin().updateUser(beans);
+//	}
 	public ActionPage(Beans bean){
 		this.beans=bean;
 	}

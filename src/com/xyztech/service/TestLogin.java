@@ -69,13 +69,12 @@ public class TestLogin {
 			}
 			return bean;
 		}
-		public void updateUser(Beans bean){
-		String	sql=new Sql().sql_xiugai(bean);
+		public void updateUser(String sql){
 		con=PublicConnection.connections("HR");
 		try {
 			st=con.createStatement();
-			boolean b=st.execute(sql);
-			if(b){
+			int i=st.executeUpdate(sql);
+			if(i==1){
 				System.out.println("成功修改数据");
 			}else{
 				System.out.println("失败了");
@@ -84,6 +83,5 @@ public class TestLogin {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		}
 }
