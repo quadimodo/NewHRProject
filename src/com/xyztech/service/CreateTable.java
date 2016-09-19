@@ -10,6 +10,7 @@ import com.xyztech.util.Fenye;
 
 public class CreateTable {
 	ArrayList<Salarys> al=new ArrayList<Salarys>();
+
 	public void preTalbeBuild(Beans bean){
 		Connections connect =new Connections();
 		connect.uname=bean.getUsername();
@@ -23,7 +24,6 @@ public class CreateTable {
 	public DefaultTableModel putSalary(){
 		Fenye.xiaYiYe(al);
 		Object[][] obj=new Object[Fenye.RowPerPage][12];
-		
 		int start=Fenye.RowPerPage*(Fenye.currentPage-1);
 		int end=Fenye.RowPerPage*Fenye.currentPage;
 		if(Fenye.currentPage==Fenye.totalPage&&Fenye.totalRowCount%Fenye.RowPerPage!=0){
@@ -52,4 +52,5 @@ public class CreateTable {
 
 		return defaulttablemodel;
 	}
+
 }

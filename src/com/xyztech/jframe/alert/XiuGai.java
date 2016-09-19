@@ -15,15 +15,19 @@ import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class XiuGai extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_5;
-	private JTextField textField_6;
-
+	public JPanel contentPane;
+	public JTextField textField;
+	public JTextField textField_1;
+	public JTextField textField_5;
+	public JTextField textField_6;
+	public JComboBox<?> comboBox;
+	public JComboBox<?> comboBox_1;
+	public JComboBox<?> comboBox_2;
 	/**
 	 * Launch the application.
 	 */
@@ -44,6 +48,8 @@ public class XiuGai extends JFrame {
 	 * Create the frame.
 	 */
 	public XiuGai() {
+		final  XiuGai that=this;
+		setTitle("\u5458\u5DE5\u7BA1\u7406\u7CFB\u7EDF");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 361, 518);
 		contentPane = new JPanel();
@@ -82,20 +88,30 @@ public class XiuGai extends JFrame {
 		textField_6 = new JTextField();
 		textField_6.setColumns(10);
 		
-		JComboBox comboBox = new JComboBox();
+		 comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"\u8D22\u52A1\u90E8", "\u6280\u672F\u90E8", "\u884C\u653F\u90E8", "\u4E1A\u52A1\u90E8", "\u603B\u7ECF\u529E"}));
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"T1", "T2", "T3", "P1", "P2", "P3", "\u603B\u88C1"}));
+		 comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"\u603B\u88C1", "T1", "T2", "T3", "P1", "P2", "P3"}));
 		
-		JComboBox comboBox_2 = new JComboBox();
+		 comboBox_2 = new JComboBox();
 		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"\u666E\u901A\u7528\u6237", "\u90E8\u95E8\u7ECF\u7406", "\u603B\u7ECF\u7406", "\u7BA1\u7406\u5458"}));
 		
 		JButton button = new JButton("\u4FEE\u6539");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		
 		JButton btnNewButton = new JButton("\u5220\u9664");
 		
 		JButton button_1 = new JButton("\u5173\u95ED");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				that.dispose();
+			}
+		});
 		
 		JButton button_2 = new JButton("\u65B0\u589E");
 		GroupLayout gl_panel = new GroupLayout(panel);

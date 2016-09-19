@@ -37,4 +37,17 @@ public class ExStringInt {
 		}
 		return null;
 	}
+	public String rankid(int e){
+		switch(e){
+		case 1:
+			return st="普通用户";
+		case 2:
+			return st="部门经理";
+		case 3:
+			return st="总经理";
+		case 4:
+			return st="管理员";
+	}
+		return null;
+	}
 }

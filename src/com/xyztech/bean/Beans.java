@@ -1,32 +1,79 @@
 package com.xyztech.bean;
 //基本信息
 public class Beans {
-	 static private String username;
-	 static private String password;
-	 static private int rankid;
+	  private String username,password,telphone,department,permission,gender, rankname;
+	  private int rankid,depid,perid;
+	  public int getDepid() {
+		return depid;
+	}
+	public void setDepid(int depid) {
+		this.depid = depid;
+	}
+	public int getPerid() {
+		return perid;
+	}
+	public void setPerid(int perid) {
+		this.perid = perid;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	 public  String getTelphone() {
+		return telphone;
+	}
+	public  void setTelphone(String telphone) {
+		this.telphone = telphone;
+	}
+	public  String getDepartment() {
+		return department;
+	}
+	public  void setDepartment(String department) {
+		this.department = department;
+	}
+	public  String getPermission() {
+		return permission;
+	}
+	public  void setPermission(String permission) {
+		this.permission = permission;
+	}
+	
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
-		Beans.username = username;
+		this.username = username;
 	}
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
-		Beans.password = password;
+		this.password = password;
 	}
 	public int getRankid() {
 		return rankid;
 	}
 	public void setRankid(int rankid) {
-		Beans.rankid = rankid;
+		this.rankid = rankid;
 	}
-	public Beans(String username, String password, int rankid) {
+	public Beans(String username, String password, String telphone, String department, String permission, String gender,
+			int rankid) {
 		super();
-		Beans.username = username;
-		Beans.password = password;
-		Beans.rankid = rankid;
+		this.username = username;
+		this.password = password;
+		this.telphone = telphone;
+		this.department = department;
+		this.permission = permission;
+		this.gender = gender;
+		this.rankid = rankid;
+	}
+	public String getRankname() {
+		return rankname;
+	}
+	public void setRankname(String rankname) {
+		this.rankname = rankname;
 	}
 	public Beans() {
 		super();

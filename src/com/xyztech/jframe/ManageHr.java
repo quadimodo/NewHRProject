@@ -27,6 +27,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
+import com.xyztech.action.ActionPage;
 import com.xyztech.bean.Beans;
 import com.xyztech.bean.Chaxun;
 import com.xyztech.bean.Salarys;
@@ -164,6 +165,16 @@ public class ManageHr extends JFrame {
 		panel.add(btnNewButton);
 		
 		JButton button = new JButton("\u4FEE\u6539");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//点击修改，修改数据
+				if(table.getSelectedRow()!=-1){
+					int uid=connect.returnSalary().get(table.getSelectedRow()+(Fenye.currentPage-1)*10).getUid();
+					new ActionPage().actionXiugai(uid);
+				}
+				
+			}
+		});
 		button.setBounds(624, 32, 93, 23);
 		panel.add(button);
 		
@@ -249,11 +260,7 @@ public class ManageHr extends JFrame {
 				String sql="select a.UID,UName,DepName,SalBasic,SalHouse,SalOld,SalHealth,SalEmp,SalRefund,SalPerformance,SalDate from Employee as a,Department as b,Salary as c where b.DepID=a.DepID and c.UID=a.UID"
 						+" and a.DepID=(select DepID from Employee where UName='"+bean.getUsername()+"' and UPassword='"+bean.getPassword()+"'  and RankID="+bean.getRankid()+" )";
 						connect.setSql(sql);
-						CreateTable ct=new CreateTable();
-						ArrayList<Salarys> al=connect.returnSalary();
-						ct.preTableBuild(al);
-						ct.putSalary();
-						table.setModel(ct.putSalary());
+						exchangeTable();
 			}
 		});
 		btnNewButton_1.setBounds(281, 93, 81, 23);
@@ -267,10 +274,7 @@ public class ManageHr extends JFrame {
 			int j=Integer.valueOf(textField.getText());
 			if(j<=i&&j>=1){
 				Fenye.currentPage=j;
-				CreateTable ct=new CreateTable();
-				ct.preTableBuild(connect.returnSalary());
-				ct.putSalary();
-				table.setModel(ct.putSalary());
+				exchangeTable();
 				label_3.setText("共"+Fenye.totalPage+"页，当前页为"+Fenye.currentPage);
 			}
 		}
@@ -278,10 +282,7 @@ public class ManageHr extends JFrame {
 		private void do_actionPerformed_lastpage(ActionEvent e) {
 			if(Fenye.currentPage!=1){
 				Fenye.currentPage--;
-				CreateTable ct=new CreateTable();
-				ct.preTableBuild(connect.returnSalary());
-				ct.putSalary();
-				table.setModel(ct.putSalary());
+				exchangeTable();
 				label_3.setText("共"+Fenye.totalPage+"页，当前页为"+Fenye.currentPage);
 			}
 			
@@ -290,11 +291,15 @@ public class ManageHr extends JFrame {
 		private void do_actionPerformed_nextpage(ActionEvent e) {
 			if(Fenye.currentPage!=Fenye.totalPage){
 				Fenye.currentPage++;
-				CreateTable ct=new CreateTable();
-				ct.preTableBuild(connect.returnSalary());
-				ct.putSalary();
-				table.setModel(ct.putSalary());
+				exchangeTable();
 				label_3.setText("共"+Fenye.totalPage+"页，当前页为"+Fenye.currentPage);
 			}
 }
+		//换页通用方法
+		private  void exchangeTable(){
+			CreateTable ct=new CreateTable();
+			ct.preTableBuild(connect.returnSalary());
+			ct.putSalary();
+			table.setModel(ct.putSalary());
+		}
 }
