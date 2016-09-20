@@ -18,7 +18,7 @@ public class Sql {
 		String tel=cx.getTelphone();
 		int uid=cx.getUid();
 		if(!name.equals("")){
-			this.sql_cx+=" and a.UName='"+name+"' ";
+			this.sql_cx+=" and a.UName like '%"+name+"%'  ";
 		}
 		if(!tel.equals("")){
 			this.sql_cx+=" and a.UTelphone='"+tel+"' ";
